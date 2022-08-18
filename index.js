@@ -26,14 +26,14 @@ const API_KEY = "547e56f048096775d182a9c43a2b9b53";
               }
                 setInnerText("city", name);
                 setInnerText("country", sys.country); 
-                setInnerText("temperature", kelvin); 
+                setInnerText("temperature", kelvinToCelsius(kelvin)); 
                 setInnerText("situation", weather[0].main); 
 
                 //  set weather icon
                 const url = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
                 const imgIcon = document.getElementById("weather-icon");
                 imgIcon.setAttribute("src", url); 
-                
+
                 // clear the input after searching
                 document.getElementById("city-name").value = "";
         }
