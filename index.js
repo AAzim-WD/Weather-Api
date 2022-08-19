@@ -14,19 +14,21 @@ const API_KEY = "547e56f048096775d182a9c43a2b9b53";
             const setInnerText = (id, text) => {
                 document.getElementById(id).innerText = text;
             }
+
+            // const kelvin = main.temp;
+                const kelvinToCelsius = (kelvin) => {
+                    const celsius = (kelvin - 273.15).toFixed(2);
+                    return celsius;  
+              }
    
 
         const displayTemperature = (data) => {    
                const {name, main, sys, weather} = data;     
             // convert kelvin to celsius   
-                const kelvin = main.temp;
-                const kelvinToCelsius = (kelvin) => {
-                const celsius = (kelvin - 273.15).toFixed(2);
-                return celsius;  
-              }
+                
                 setInnerText("city", name);
                 setInnerText("country", sys.country); 
-                setInnerText("temperature", kelvinToCelsius(kelvin)); 
+                setInnerText("temperature", kelvinToCelsius(main.temp)); 
                 setInnerText("situation", weather[0].main); 
 
                 //  set weather icon
